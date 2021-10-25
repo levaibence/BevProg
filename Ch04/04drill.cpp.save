@@ -1,0 +1,38 @@
+#include "std_lib_facilities.h"
+
+bool quit=0;
+
+int check(string input)
+{
+	int y=0,i;
+	while(1)
+	{	switch(input[i])
+		{
+			case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
+			{
+				y+='0'-input;
+				i++;
+			}
+			case '|': {quit=1; return 0;}
+			default: {cerr<<"Invalid input!"; return 1;}
+		}
+	}
+}
+
+int main()
+{ 
+	string a,b;
+
+	while(cin)
+	{
+		cout<<"Enter 2 integers separated by a space, then press enter: ";
+
+		cin>>a;
+		if(check(a)==0&&quit) break;
+		cin>>b;
+
+		if(check(b)==0&&quit) break;
+		cout<<"The smaller value is:";
+	}
+	return 0;
+}
